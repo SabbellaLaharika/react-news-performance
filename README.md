@@ -1,16 +1,66 @@
-# React + Vite
+# High-Performance React News Aggregator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional news aggregator built with React and the HackerNews API, demonstrating systematic performance optimization.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **HackerNews API Integration**: Fetches top 500 stories.
+- **Optimized Performance**:
+    - **Parallel Fetching**: Uses `Promise.all` for rapid data retrieval.
+    - **List Virtualization**: Efficiently renders 500+ items using `@tanstack/react-virtual`.
+    - **Image Optimization**: Responsive images with `srcset` and explicit dimensions.
+    - **Code Splitting**: Lazy-loaded components for faster initial load.
+    - **Memoization**: Strategic use of `React.memo` and `useMemo`.
 
-## React Compiler
+## Audit Results
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+See [PERFORMANCE.md](./PERFORMANCE.md) for a detailed breakdown of the performance audit and the impact of each optimization.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Local Development
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repo-url>
+   cd react-news-performance
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Setup environment**:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Run the app**:
+   ```bash
+   npm run dev
+   ```
+
+### Running the "Slow" Version
+
+To view the initial, unoptimized version of the application:
+```bash
+git checkout slow-version
+npm install
+npm run dev
+```
+
+### Docker Setup (Production Build)
+
+To run the production-optimized application in a container:
+```bash
+docker-compose up -d --build
+```
+The application will be accessible at `http://localhost:3000`.
+
+## Scripts
+
+- `npm run dev`: Start development server.
+- `npm run build`: Build for production (generates `stats.html`).
+- `npm run preview`: Preview the production build locally.
+- `npm run lint`: Run ESLint.
