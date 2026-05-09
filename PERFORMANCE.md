@@ -38,4 +38,7 @@ This document tracks the performance audit and optimization process for the Reac
 - **Change**: Implemented `React.lazy` for the `OptimizedNewsList` component.
 - **Impact**: Reduced the initial JavaScript payload.
 - **Why it improved**: The browser only downloads the code for the article list after the initial page structure is loaded.
-
+### 6. CSS-Based System Theme Transitions & Responsive Optimization
+- **Change**: Replaced manual inline styling and standard colors with unified CSS custom properties (`:root` variables) supporting both light and dark modes via `@media (prefers-color-scheme: dark)`. Added CSS-only responsive media queries for tablet (`768px`) and mobile (`480px`).
+- **Impact**: Zero runtime JavaScript overhead for theme toggling and layout adaptation.
+- **Why it improved**: Standardizing theme transitions using CSS-native media queries prevents "Flash of Unstyled Content" (FOUC) and Layout Shifts during initial render. Responsive breakpoints are fully handled by the browser's style engine rather than JavaScript window resize event listeners, avoiding main thread execution overhead during screen scaling.
