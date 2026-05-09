@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import sortBy from 'lodash/sortBy'; // Optimization: Cherry-picked import
 import { useVirtualizer } from '@tanstack/react-virtual';
 import OptimizedArticleItem from './OptimizedArticleItem';
@@ -19,14 +19,13 @@ const OptimizedNewsList = () => {
         const ids = await response.json();
         
         // Optimization: Parallelize network requests with Promise.all
-        // Fetching top 500
         const topIds = ids.slice(0, 500);
         const storyPromises = topIds.map(id => 
           fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(res => res.json())
         );
         
         const stories = await Promise.all(storyPromises);
-        setArticles(stories);
+        setArticles(stories.filter(Boolean));
       } catch (error) {
         console.error('Error fetching stories:', error);
       } finally {
@@ -54,25 +53,47 @@ const OptimizedNewsList = () => {
   const rowVirtualizer = useVirtualizer({
     count: processedArticles.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 100, // Estimated height of an article item
+    estimateSize: () => 80,
     overscan: 5,
   });
+
+  const handleFilterChange = useCallback((e) => {
+    setFilter(e.target.value);
+  }, []);
 
   return (
     <div className="news-container">
       <div className="controls">
         <input 
           type="text" 
-          placeholder="Filter articles..." 
+          placeholder="Search articles..." 
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={handleFilterChange}
         />
-        <button onClick={() => setSortField('score')}>Sort by Score</button>
-        <button onClick={() => setSortField('none')}>Reset Sort</button>
+        <button 
+          className={sortField === 'score' ? 'active' : ''}
+          onClick={() => setSortField('score')}
+        >
+          Sort by Score
+        </button>
+        <button 
+          className={sortField === 'none' ? 'active' : ''}
+          onClick={() => setSortField('none')}
+        >
+          Latest
+        </button>
+      </div>
+
+      <div className="stats-bar">
+        <span className="count">{processedArticles.length} articles</span>
+        <span>{filter ? `Filtered by "${filter}"` : 'Showing all stories'}</span>
       </div>
 
       {loading ? (
-        <p>Loading articles in parallel...</p>
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <p>Fetching top stories...</p>
+        </div>
       ) : (
         <div 
           ref={parentRef} 

@@ -14,7 +14,7 @@ const OptimizedArticleItem = memo(({ article, style }) => {
     <div 
       data-testid="article-item" 
       className="article-item"
-      style={style} // Needed for virtualization
+      style={style}
     >
       <h3>
         <a href={article.url} target="_blank" rel="noopener noreferrer">
@@ -22,9 +22,11 @@ const OptimizedArticleItem = memo(({ article, style }) => {
         </a>
       </h3>
       <p>
-        <span>{article.score} points</span> | 
-        <span> by {article.by}</span> | 
-        <span> {dateFormatter.format(new Date(article.time * 1000))}</span>
+        <span className="score">{article.score} pts</span>
+        <span className="separator">·</span>
+        <span className="author">{article.by}</span>
+        <span className="separator">·</span>
+        <span>{dateFormatter.format(new Date(article.time * 1000))}</span>
       </p>
     </div>
   );

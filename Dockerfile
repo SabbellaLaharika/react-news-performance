@@ -1,15 +1,20 @@
 # Build stage
-FROM node:20-alpine as build-stage
+FROM node:20-alpine AS build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY . .
 RUN npm run build
 
 # Production stage
-FROM nginx:stable-alpine as production-stage
+FROM nginx:stable-alpine AS production-stage
+
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-# Add custom nginx config to handle SPA routing if needed
+
+# Custom nginx config for SPA routing
 RUN echo "server { \
     listen 80; \
     location / { \

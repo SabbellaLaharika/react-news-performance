@@ -9,7 +9,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>High-Performance News Aggregator (Optimized Version)</h1>
+        <h1>HackerNews Aggregator</h1>
+        <p className="subtitle">Top 500 stories · Optimized for performance</p>
       </header>
       <main>
         {/* Optimization: Hero image with width, height, and srcset */}
@@ -19,15 +20,21 @@ function App() {
             srcSet={`${heroImage} 1200w, ${heroImage} 800w, ${heroImage} 400w`}
             sizes="(max-width: 1200px) 100vw, 1200px"
             width="1200"
-            height="400"
-            alt="Hero" 
+            height="514"
+            alt="Tech cityscape hero" 
             data-testid="hero-image"
             className="hero-image"
-            loading="eager" // Hero image should load eagerly for LCP
+            loading="eager"
           />
+          <div className="hero-overlay"></div>
         </div>
         
-        <Suspense fallback={<p>Loading optimized components...</p>}>
+        <Suspense fallback={
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Loading components...</p>
+          </div>
+        }>
           <OptimizedNewsList />
         </Suspense>
       </main>
