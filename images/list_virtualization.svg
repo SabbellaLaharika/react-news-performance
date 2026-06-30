@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="800" height="450" rx="12" fill="#0b0f19" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Divider -->
+  <line x1="400" y1="40" x2="400" y2="420" stroke="#334155" stroke-dasharray="4 4" stroke-width="1.5"/>
+  
+  <!-- Header -->
+  <text x="400" y="35" text-anchor="middle" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" letter-spacing="0.5">
+    LIST VIRTUALIZATION ARCHITECTURE
+  </text>
+  
+  <!-- LEFT COLUMN: UNVIRTUALIZED BLOAT -->
+  <g transform="translate(0, 0)">
+    <!-- Column Title -->
+    <rect x="40" y="60" width="320" height="36" rx="6" fill="#ef4444" fill-opacity="0.1" stroke="#ef4444" stroke-width="1"/>
+    <text x="200" y="83" text-anchor="middle" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="bold">
+      ❌ UNOPTIMIZED: FULL DOM RENDERING
+    </text>
+    
+    <!-- DOM Container -->
+    <rect x="60" y="110" width="280" height="280" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    
+    <!-- All Items Mounted -->
+    <rect x="75" y="125" width="230" height="30" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+    <text x="190" y="144" text-anchor="middle" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="10">Mounted Article 1 (DOM Node)</text>
+    
+    <rect x="75" y="165" width="230" height="30" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+    <text x="190" y="184" text-anchor="middle" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="10">Mounted Article 2 (DOM Node)</text>
+    
+    <rect x="75" y="205" width="230" height="30" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+    <text x="190" y="224" text-anchor="middle" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="10">Mounted Article 3 (DOM Node)</text>
+    
+    <!-- Dots for Middle Items -->
+    <circle cx="190" cy="255" r="3" fill="#64748b"/>
+    <circle cx="190" cy="270" r="3" fill="#64748b"/>
+    <circle cx="190" cy="285" r="3" fill="#64748b"/>
+
+    <rect x="75" y="305" width="230" height="30" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1"/>
+    <text x="190" y="324" text-anchor="middle" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="10">Mounted Article 500 (DOM Node)</text>
+    
+    <!-- Description Label -->
+    <text x="200" y="415" text-anchor="middle" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">
+      500 Nodes Mounted • Heavy CPU Re-renders • INP: 1200ms
+    </text>
+  </g>
+  
+  <!-- RIGHT COLUMN: VIRTUALIZED VIEWPORT -->
+  <g transform="translate(400, 0)">
+    <!-- Column Title -->
+    <rect x="40" y="60" width="320" height="36" rx="6" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1"/>
+    <text x="200" y="83" text-anchor="middle" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="bold">
+      ✅ OPTIMIZED: VIRTUALIZED VIEWPORT
+    </text>
+    
+    <!-- Outer Virtual Scroll Range -->
+    <rect x="60" y="110" width="280" height="280" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4"/>
+    
+    <!-- Scrollbar (Simulated) -->
+    <rect x="325" y="115" width="6" height="270" rx="3" fill="#1e293b"/>
+    <rect x="325" y="170" width="6" height="70" rx="3" fill="#475569"/>
+
+    <!-- Virtualized Area (Top) -->
+    <rect x="75" y="115" width="230" height="40" rx="4" fill="#334155" fill-opacity="0.2" stroke="#475569" stroke-width="1" stroke-dasharray="2 2"/>
+    <text x="190" y="138" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-style="italic">Unrendered Items 0 to 45 (Virtual)</text>
+    
+    <!-- Physical Viewport Frame (Simulated screen) -->
+    <rect x="70" y="165" width="240" height="150" rx="6" fill="none" stroke="#10b981" stroke-width="2.5"/>
+    <rect x="73" y="168" width="55" height="15" rx="3" fill="#10b981" fill-opacity="0.2"/>
+    <text x="100" y="179" text-anchor="middle" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="bold">VIEWPORT</text>
+
+    <!-- Rendered Active Items inside Viewport -->
+    <rect x="80" y="188" width="220" height="30" rx="4" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+    <text x="190" y="206" text-anchor="middle" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="bold">Mounted Item 46 (translateY)</text>
+
+    <rect x="80" y="226" width="220" height="30" rx="4" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+    <text x="190" y="244" text-anchor="middle" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="bold">Mounted Item 47 (translateY)</text>
+
+    <rect x="80" y="266" width="220" height="30" rx="4" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+    <text x="190" y="284" text-anchor="middle" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="bold">Mounted Item 48 (translateY)</text>
+
+    <!-- Virtualized Area (Bottom) -->
+    <rect x="75" y="335" width="230" height="45" rx="4" fill="#334155" fill-opacity="0.2" stroke="#475569" stroke-width="1" stroke-dasharray="2 2"/>
+    <text x="190" y="362" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-style="italic">Unrendered Items 49 to 499 (Virtual)</text>
+
+    <!-- Description Label -->
+    <text x="200" y="415" text-anchor="middle" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">
+      Only ~12 Nodes Mounted • Constant DOM size • INP: 80ms
+    </text>
+  </g>
+</svg>

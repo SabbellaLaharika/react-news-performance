@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="800" height="450" rx="12" fill="#0b0f19" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Header -->
+  <text x="400" y="35" text-anchor="middle" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" letter-spacing="0.5">
+    LIGHTHOUSE CORE WEB VITALS &amp; AUDIT METRICS
+  </text>
+
+  <!-- Left Side: Baseline Dials -->
+  <g transform="translate(0, 0)">
+    <!-- Section Border -->
+    <rect x="40" y="65" width="340" height="340" rx="8" fill="#1e293b" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="210" y="93" text-anchor="middle" fill="#fca5a5" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">❌ BASELINE AUDIT (UNOPTIMIZED)</text>
+    
+    <!-- Red Score Dial -->
+    <circle cx="210" cy="180" r="50" fill="none" stroke="#334155" stroke-width="10"/>
+    <!-- Arc representing 38% (dasharray ~ 314 * 0.38 = 119) -->
+    <circle cx="210" cy="180" r="50" fill="none" stroke="#ef4444" stroke-width="10" stroke-dasharray="119 314" stroke-dashoffset="0" transform="rotate(-90 210 180)" stroke-linecap="round"/>
+    <text x="210" y="188" text-anchor="middle" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold">38</text>
+    <text x="210" y="245" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold">PERFORMANCE SCORE</text>
+    
+    <!-- Metrics Table -->
+    <!-- LCP -->
+    <rect x="60" y="270" width="140" height="45" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="70" y="287" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">8.5s</text>
+    <text x="70" y="303" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">LCP (Slow)</text>
+
+    <!-- INP -->
+    <rect x="220" y="270" width="140" height="45" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="230" y="287" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">1200ms</text>
+    <text x="230" y="303" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">INP (Laggy)</text>
+
+    <!-- CLS -->
+    <rect x="60" y="330" width="140" height="45" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="70" y="347" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">0.45</text>
+    <text x="70" y="363" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">CLS (Unstable)</text>
+
+    <!-- Bundle -->
+    <rect x="220" y="330" width="140" height="45" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="230" y="347" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">1.5 MB</text>
+    <text x="230" y="363" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">Bundle Size</text>
+  </g>
+
+  <!-- Right Side: Optimized Dials -->
+  <g transform="translate(380, 0)">
+    <!-- Section Border -->
+    <rect x="40" y="65" width="340" height="340" rx="8" fill="#1e293b" fill-opacity="0.3" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="210" y="93" text-anchor="middle" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">✅ OPTIMIZED AUDIT (PRODUCTION-READY)</text>
+    
+    <!-- Green Score Dial -->
+    <circle cx="210" cy="180" r="50" fill="none" stroke="#334155" stroke-width="10"/>
+    <!-- Arc representing 99% (dasharray ~ 314 * 0.99 = 310) -->
+    <circle cx="210" cy="180" r="50" fill="none" stroke="#10b981" stroke-width="10" stroke-dasharray="310 314" stroke-dashoffset="0" transform="rotate(-90 210 180)" stroke-linecap="round"/>
+    <text x="210" y="188" text-anchor="middle" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold">99</text>
+    <text x="210" y="245" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold">PERFORMANCE SCORE</text>
+    
+    <!-- Metrics Table -->
+    <!-- LCP -->
+    <rect x="60" y="270" width="140" height="45" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="70" y="287" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">1.2s</text>
+    <text x="70" y="303" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">LCP (Fast)</text>
+
+    <!-- INP -->
+    <rect x="220" y="270" width="140" height="45" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="230" y="287" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">80ms</text>
+    <text x="230" y="303" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">INP (Responsive)</text>
+
+    <!-- CLS -->
+    <rect x="60" y="330" width="140" height="45" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="70" y="347" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">0.01</text>
+    <text x="70" y="363" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">CLS (Stable)</text>
+
+    <!-- Bundle -->
+    <rect x="220" y="330" width="140" height="45" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="230" y="347" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold">220 kB</text>
+    <text x="230" y="363" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9">Split Main Chunk</text>
+  </g>
+</svg>
