@@ -8,6 +8,24 @@ A professional, high-performance HackerNews client built with React 19 and Vite,
 
 ---
 
+## 🛠️ Tech Stack
+
+*   **React 19 (Core UI)**: Built on a component-driven architecture using memoization (`React.memo`, `useMemo`, `useCallback`) to avoid redundant rendering cycles.
+*   **Vite & Rollup (Build Tooling)**: Bundles and compiles project assets, configured with Rollup-level chunk splitting.
+*   **TanStack Virtual**: High-performance engine used for DOM list virtualization.
+*   **Docker & Docker Compose**: Containerization environment using multi-stage Alpine-Nginx builds with healthchecks.
+
+---
+
+## 🚀 Key Features
+
+*   **HackerNews REST Integration**: Concurrently resolved via parallel execution streams to avoid network serialization latency.
+*   **DOM List Virtualization**: Dynamically tracks viewport scrolling and recycles DOM elements, capping active DOM nodes to maintain responsiveness.
+*   **Dynamic Bundle Splitting**: Utilizes custom Rollup `manualChunks` to split React core libraries, utility functions, and features into discrete, cacheable chunks.
+*   **Layout Stability (CLS 0.01)**: Implements explicit dimensions and aspect-ratio constraints on image elements to prevent cumulative shifts.
+
+---
+
 ## 🌍 Real-World Use Cases
 
 Optimizing data-heavy aggregators is not just an academic exercise. The rendering and fetching methodologies implemented in this project are critical for building:
