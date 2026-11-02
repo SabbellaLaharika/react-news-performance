@@ -10,7 +10,7 @@ A professional, high-performance HackerNews client built with React 19 and Vite,
 
 ## 🎥 Project Demo
 
-[![Watch the React News Aggregator Performance Optimization demo on YouTube](https://img.youtube.com/vi/X8BV9wYrA50/hqdefault.jpg)](https://youtu.be/X8BV9wYrA50)
+[![Watch the React News Aggregator Performance Optimization demo on YouTube](https://img.youtube.com/vi/X8BV9wYrA50/maxresdefault.jpg)](https://youtu.be/X8BV9wYrA50)
 
 ---
 
